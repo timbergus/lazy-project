@@ -1,0 +1,71 @@
+---
+name: WebPack
+route: /webpack
+menu: Libraries
+---
+
+# WebPack
+
+WebPack is the core of the project. We are going to use WebPack to develop and build the final release.
+
+We need to install WebPack and the loaders and plugins around it.
+
+```bash
+npm install --save-dev webpack webpack-cli
+```
+
+## Loaders
+
+* __babel-loader__ ➞ this loaders uses Babel and load JSX and ES files.
+
+```bash
+npm install --save-dev babel-loader
+```
+
+* __style-loader__ and __style-loader__ ➞ these loaders imports CSS styles and inject them inside the JavaScript file that imports them.
+
+```bash
+npm install --save-dev style-loader style-loader
+```
+
+* __sass-loader__ ➞ this loader allow us to import Sass files.
+
+```bash
+npm install --save-dev sass-loader node-sass
+```
+
+* __postcss-loader__ ➞ this loader allow us to import CSS files using PostCSS tools to transform them.
+
+```bash
+npm install --save-dev postcss-loader
+```
+
+* __url-loader__ and __file-loader__ ➞ these two loader has a similar behavior. Both load assets. The difference is that __url-loader__ inject the file inside the code, and __file-loader__ creates a file inside the distribution folder, linked with the code through its name. The __url-loader__ can be configured with a size limit. Files under the limit will be injected, and files over the limit will be linked.
+
+```bash
+npm install --save-dev url-loader file-loader
+```
+
+## Plugins
+
+WebPack plugins will help us to perform extra activities while developing and building our app. For instance, we will create the `index.html`, and extract the CSS code from the JavaScript files using plugins.
+
+* __mini-css-extract-plugin__ ➞ this plugin will extract the CSS imported code from the JavaScript bundle.
+
+```bash
+npm install --save-dev mini-css-extract-plugin
+```
+
+* __html-webpack-plugin__ ➞ this plugin will create the index.html for our application every time, linking the new generated JavaScript and CSS bundles, with their new hashes.
+
+```bash
+npm install --save-dev html-webpack-plugin
+```
+
+## WebPack Dev Server
+
+To start a development server, we are going to install `webpack-dev-server` and `react-hot-loader`, a plugin to allow us to hot reload our application during development.
+
+```bash
+npm install --save-dev webpack-dev-server react-hot-loader
+```

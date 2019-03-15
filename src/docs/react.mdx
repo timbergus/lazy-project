@@ -1,0 +1,43 @@
+---
+name: React
+route: /react
+menu: Libraries
+---
+
+# React
+
+To use React in our project we need to install two libraries: __React__ and __ReactDOM__.
+
+```bash
+npm install --save-dev webpack webpack-cli
+```
+
+The project has two main files.
+
+* __index.jsx__ ➞ where we add the needed code to start our React application using the entry component.
+
+```jsx
+import React from 'react';
+import { render } from 'react-dom';
+
+import App from './app.jsx';
+
+render(<App />, document.getElementById('root'));
+```
+
+* __app.jsx__ ➞ where we have our entry component, and the hot reaload entry point.
+
+```jsx
+import './app.scss';
+
+import React from 'react';
+import { hot } from 'react-hot-loader/root';
+
+const App = () => <h1>Hello World!</h1>;
+
+export default hot(App);
+```
+
+## ☣️ Warning
+
+* Use always __JSX__ extension for React files. It will be an error if there is jsx code inside a normal __JS__ file when running the test.

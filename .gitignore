@@ -2,5 +2,6 @@
 /node_modules/
 /dist/
 /.docz/
+/__tests__/coverage/
 package-lock.json
 yarn.lock

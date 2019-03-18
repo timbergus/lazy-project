@@ -1,7 +1,9 @@
+// @flow
+
 import './app.scss';
 
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
 import universal from 'react-universal-component';
@@ -9,6 +11,12 @@ import universal from 'react-universal-component';
 import Loading from './components/loading';
 
 import Home from './routes/home';
+
+type Props = {}
+
+type State = {
+  hasError: boolean,
+}
 
 const About = universal(() => import(/* webpackChunkName: 'about' */ './routes/about'), {
   loading: <Loading />,
@@ -18,17 +26,21 @@ const Users = universal(() => import(/* webpackChunkName: 'users' */ './routes/u
   loading: <Loading />,
 });
 
-class App extends Component {
+class App extends Component<Props, State> {
   state = {
     hasError: false,
   }
 
   componentDidCatch(error, info) {
+    console.log(error);
+    console.log(info);
     this.setState({ hasError: true });
   }
 
   render() {
-    if (this.state.hasError) {
+    const { hasError } = this.state;
+
+    if (hasError) {
       return <h1>Something went wrong.</h1>;
     }
 
@@ -49,7 +61,7 @@ class App extends Component {
             </ul>
           </nav>
           <Route exact path="/" component={Home} />
-          <Route path="/about"  component={About} />
+          <Route path="/about" component={About} />
           <Route path="/users" component={Users} />
         </div>
       </Router>

@@ -5,3 +5,84 @@ menu: Libraries
 ---
 
 # Linters
+
+In order to maintain a proper and well formatted code, we need linters. These tools are capable of knowing which part of our code are wrong formatted, anf tell us how to fix them.
+
+The two main linters we need are ESLint and SassLint.
+
+## ESLint
+
+Basically, we only need to install it.
+
+```bash
+npm install --save-dev eslint
+```
+
+And then init it to create the basic configuration file, answering a few questions during the process.
+
+```bash
+./node_modules/.bin/eslint --init
+```
+
+We are going to check syntax. find problems and enforce code style. We are going to use JavaScript modules (import, export). We are using React framework in the project, and we are using browser and Node, because we are writing also scripts as tools.
+
+To start working, we are going to select a popular style guide. We are going to use Airbnb because is pretty popular and very restrictive with code styles. And in JSON format.
+
+Finally we are going to be asked to confirm the installation of the needed modules.
+
+After the installation we will be ready to go.
+
+We create a script to run eslint and we add it to the test script.
+
+```JSON
+{
+  "scripts": {
+    "test": "npm run test:eslint",
+    "test:eslint": "eslint src/**/*.{js,jsx}"
+  },
+}
+```
+
+Now we need to add Flow to ESLint to avoid unexpected errors. We will install Flow plugin and babel-eslint to transpile the code.
+
+```bash
+npm install --save-dev babel-eslint eslint-plugin-flowtype
+```
+
+```JSON
+{
+  [...]
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "flowtype"
+  ],
+  [...]
+}
+```
+
+## Sass-Lint
+
+First we need to install the tool.
+
+```bash
+npm install --save-dev sass-lint
+```
+
+And then, we need to create the configuration file. The easiest way is to copy the example Yml file [here](https://github.com/sasstools/sass-lint/blob/master/docs/sass-lint.yml).
+
+And then add the linter to our __package.json__ scripts.
+
+```JSON
+{
+  "scripts": {
+    "test": "npm run test:eslint && npm run test:sass-lint",
+    "test:eslint": "eslint src/**/*.{js,jsx}",
+    "test:sass-lint": "sass-lint 'src/**/*.scss' -v -q",
+  },
+}
+```

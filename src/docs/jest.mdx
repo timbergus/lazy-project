@@ -5,3 +5,39 @@ menu: Libraries
 ---
 
 # Jest
+
+Jest is the best testing tool for JavaScript, period. So we are going to use it :)
+
+First we need to install it and Enzyme, the tool from Airbnb to handle React components:
+
+```bash
+npm install --save-dev jest babel-jest enzyme enzyme-adapter-react-16
+```
+
+And then add a script to run it.
+
+```JSON
+{
+  "scripts": {
+    "test": "npm run test:jest",
+    "test:jest": "jest",
+    "test:jest:watch": "jest --watch",
+  }
+}
+```
+
+And generate a basic configuration file:
+
+```bash
+./node_modules/.bin/jest --init
+```
+
+And also a __test-setup.js__ file to define Enzyme's adapter.
+
+```js
+// Enzyme.
+const Enzyme = require('enzyme');
+const Adapter = require('enzyme-adapter-react-16');
+
+Enzyme.configure({ adapter: new Adapter() });
+```

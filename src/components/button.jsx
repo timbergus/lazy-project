@@ -1,29 +1,27 @@
 // @flow
 
-import React, { Component } from 'react';
+import React from 'react';
 
-import ButtonStyled from './button.styled.js';
+import ButtonStyled from './button.styled';
 
 type Props = {
   label: string,
-  primary: boolean,
+  primary?: boolean,
+  onClick: Function,
 }
 
-export default class Button extends Component<Props> {
-  defaultProps = {
-    label: 'Push me!',
-    primary: false,
-  }
+const Button = (props: Props) => {
+  const { primary, label, onClick } = props;
 
-  handleClick() {
-    console.log('Click!');
-  }
+  return (
+    <ButtonStyled primary={primary} onClick={onClick}>
+      {label}
+    </ButtonStyled>
+  );
+};
 
-  render() {
-    return (
-      <ButtonStyled primary={this.props.primary} onClick={this.handleClick}>
-        {this.props.label}
-      </ButtonStyled>
-    );
-  }
-}
+Button.defaultProps = {
+  primary: false,
+};
+
+export default Button;

@@ -5,3 +5,30 @@ menu: Libraries
 ---
 
 # Flow
+
+Flow is Facebook's typing tool for JavaScript. It's pretty similar to other typing tools and it uses a babel plugin to remove type annotations while transpiling the files.
+
+```bash
+npm install --save-dev flow-bin
+```
+
+You have in other sections how to install it for Babel and ESLint.
+
+Finally we add a script to run it when testing:
+
+```JSON
+{
+  "scripts": {
+    "test": "npm run test:flow",
+    "test:flow": "flow"
+  }
+}
+```
+
+To start working with Flow, first we need to init it.
+
+```bash
+./node_modules/.bin/flow 'init'
+```
+
+By default you need to add this line at the beginning of the document to tell Flow to check it: `// @flow`.

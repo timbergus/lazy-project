@@ -1,30 +1,22 @@
 // @flow
 
+// Global application styles.
+
 import './app.scss';
 
+// Base application tools.
+
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Link } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
-import universal from 'react-universal-component';
+import Routes from './routes/routes';
 
-import Loading from './components/loading';
-
-import Home from './routes/home';
-
-type Props = {}
+type Props = {};
 
 type State = {
   hasError: boolean,
-}
-
-const About = universal(() => import(/* webpackChunkName: 'about' */ './routes/about'), {
-  loading: <Loading />,
-});
-
-const Users = universal(() => import(/* webpackChunkName: 'users' */ './routes/users'), {
-  loading: <Loading />,
-});
+};
 
 class App extends Component<Props, State> {
   state = {
@@ -46,24 +38,15 @@ class App extends Component<Props, State> {
 
     return (
       <Router>
-        <div>
+        <>
           <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-            </ul>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/users">Users</Link>
+            <Link to="/profile">Profile</Link>
           </nav>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/users" component={Users} />
-        </div>
+          <Routes />
+        </>
       </Router>
     );
   }

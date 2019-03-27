@@ -7,7 +7,7 @@ module.exports.baseFragment = ({
   entry: resolve('src', 'index.jsx'),
   output: {
     filename: '[name].[hash].js',
-    path: resolve('dist')
+    path: resolve('dist'),
   },
 });
 
@@ -64,7 +64,7 @@ module.exports.pluginsFragment = ({
   plugins: [
     new HtmlWebpackPlugin({
       template: resolve('src', 'index.html'),
-      favicon: resolve('src', 'assets', 'logo.png')
+      favicon: resolve('src', 'assets', 'logo.png'),
     }),
   ],
 });

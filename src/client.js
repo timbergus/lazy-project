@@ -1,16 +1,12 @@
 import ApolloClient, { InMemoryCache } from 'apollo-boost';
 
-const delay = (time, data) => new Promise((resolve) => {
-  setTimeout(() => {
-    resolve(data);
-  }, time);
-});
+import { delay } from './utils/tools';
 
 export default new ApolloClient({
   cache: new InMemoryCache(),
   resolvers: {
     Query: {
-      info: async () => delay(5000, {
+      info: async () => delay(2000, {
         __typename: 'Info',
         message: 'Hello World!',
       }),

@@ -47,7 +47,8 @@
     "react-spinners": "0.5.3",
     "react-universal-component": "4.0.0",
     "rimraf": "2.6.3",
-    "styled-components": "4.2.0"
+    "styled-components": "4.2.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "7.4.0",

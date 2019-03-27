@@ -14,13 +14,16 @@ const INFO = gql`
 `;
 
 export default () => (
-  <Query query={INFO}>
-    {
-      ({ loading, error, data }) => {
-        if (loading) return <LoadStateClient />;
-        if (error) return `Error! ${error.message}`;
-        return <h1>{data?.info?.message}</h1>;
+  <>
+    <h1>And the message is...</h1>
+    <Query query={INFO}>
+      {
+        ({ loading, error, data }) => {
+          if (loading) return <LoadStateClient />;
+          if (error) return `Error! ${error.message}`;
+          return <h2>{`${data?.info?.message}`}</h2>;
+        }
       }
-    }
-  </Query>
+    </Query>
+  </>
 );

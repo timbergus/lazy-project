@@ -1,21 +1,34 @@
 import React, { lazy, Suspense } from 'react';
 import { Route } from 'react-router-dom';
+import uuidv1 from 'uuid/v1';
 
 import universal from 'react-universal-component';
 import Loadable from 'react-loadable';
 import loadable from '@loadable/component';
 
-// Loading element.
+// Utils.
 import { LoadStateComponent } from '../components/load-state';
+import { delay } from '../utils/tools';
 
-// React loadable.
+// ! Universal components.
+
+const UniversalComponent = universal(props => import(`./${props.page}`), {
+  loading: <LoadStateComponent />,
+});
+
+// ? React loadable.
+
 const Home = Loadable({
-  loader: () => import('./home'),
+  loader: async () => {
+    await delay(1500, {});
+    return import('./home');
+  },
   loading: LoadStateComponent,
 });
 
-// React lazy tools.
-const AboutLazy = lazy(() => import(/* webpackChunkName: 'about' */ './about'));
+// ? React lazy tools.
+
+const AboutLazy = lazy(() => import('./about'));
 
 const About = props => (
   <Suspense fallback={<LoadStateComponent />}>
@@ -23,21 +36,27 @@ const About = props => (
   </Suspense>
 );
 
-// Universal components.
-const Users = universal(() => import(/* webpackChunkName: 'users' */ './users'), {
-  loading: <LoadStateComponent />,
-});
+// ? Loadable component.
 
-// Loadable component.
-const Profile = loadable(() => import('./profile'), {
-  fallback: <LoadStateComponent />,
-});
+const Profile = loadable(() => import('./profile'));
+
+const pages = ['users'];
 
 export default () => (
   <>
     <Route exact path="/" component={Home} />
     <Route path="/about" component={About} />
-    <Route path="/users" component={Users} />
-    <Route path="/profile" component={Profile} />
+    {/* This universal component can be generated using a list of routes */}
+    {
+      pages.map(page => (
+        <Route
+          key={uuidv1()}
+          path={`/${page}`}
+          component={props => <UniversalComponent {...props} page={page} />}
+        />
+      ))
+    }
+    {/* @loadable/component is not as expected */}
+    <Route path="/profile" component={props => <Profile {...props} />} />
   </>
 );

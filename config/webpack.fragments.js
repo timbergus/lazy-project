@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports.baseFragment = ({
   mode: process.env.NODE_ENV,
-  entry: resolve('src', 'index.jsx'),
+  entry: ['@babel/polyfill', resolve('src', 'index.jsx')],
   output: {
     filename: '[name].[hash].js',
     path: resolve('dist'),

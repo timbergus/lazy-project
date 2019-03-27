@@ -6,30 +6,32 @@ import Loadable from 'react-loadable';
 import loadable from '@loadable/component';
 
 // Loading element.
-import Loading from '../components/loading';
+import { LoadStateComponent } from '../components/load-state';
 
 // React loadable.
 const Home = Loadable({
   loader: () => import('./home'),
-  loading: Loading,
+  loading: LoadStateComponent,
 });
 
 // React lazy tools.
 const AboutLazy = lazy(() => import(/* webpackChunkName: 'about' */ './about'));
 
 const About = props => (
-  <Suspense fallback={<Loading />}>
+  <Suspense fallback={<LoadStateComponent />}>
     <AboutLazy {...props} />
   </Suspense>
 );
 
 // Universal components.
 const Users = universal(() => import(/* webpackChunkName: 'users' */ './users'), {
-  loading: <Loading />,
+  loading: <LoadStateComponent />,
 });
 
 // Loadable component.
-const Profile = loadable(() => import('./profile'));
+const Profile = loadable(() => import('./profile'), {
+  fallback: <LoadStateComponent />,
+});
 
 export default () => (
   <>

@@ -1,0 +1,27 @@
+---
+name: Load State
+route: /load-state
+menu: Components
+---
+
+import { Playground } from 'docz';
+
+import { LoadStateComponent, LoadStateClient } from './load-state.jsx';
+
+# Load State
+
+This is the loader that appears when we are waiting.
+
+We have to types of loaders. The component loading state and the client loading state. The only difference is the color.
+
+The load state for the client is shown when we wait for API responses.
+
+<Playground>
+  <LoadStateClient />
+</Playground>
+
+The component one is launched when we have lazy loading, and we wait for any part of the application that is not downloaded with the main bundle.
+
+<Playground>
+  <LoadStateComponent />
+</Playground>

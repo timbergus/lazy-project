@@ -7,13 +7,13 @@ import './app.scss';
 // Base application tools.
 
 import React, { Component } from 'react';
-import { HashRouter as Router, Link } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
 import Routes from './routes/routes';
+import Navigation from './components/navigation';
 
 type Props = {};
-
 type State = {
   hasError: boolean,
 };
@@ -37,12 +37,7 @@ class App extends Component<Props, State> {
     return (
       <Router>
         <>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/users">Users</Link>
-            <Link to="/profile">Profile</Link>
-            <Link to="/about">About</Link>
-          </nav>
+          <Navigation />
           <Routes />
         </>
       </Router>

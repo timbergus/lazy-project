@@ -23,9 +23,7 @@ class App extends Component<Props, State> {
     hasError: false,
   }
 
-  componentDidCatch(error, info) {
-    console.log(error);
-    console.log(info);
+  componentDidCatch() {
     this.setState({ hasError: true });
   }
 
@@ -41,9 +39,9 @@ class App extends Component<Props, State> {
         <>
           <nav>
             <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
             <Link to="/users">Users</Link>
             <Link to="/profile">Profile</Link>
+            <Link to="/about">About</Link>
           </nav>
           <Routes />
         </>

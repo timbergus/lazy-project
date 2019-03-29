@@ -15,6 +15,9 @@ module.file_ext=.css
 module.file_ext=.scss
 ; Needed for dynamic imports.
 module.ignore_non_literal_requires=true
+; To avoid errors with decorators.
+; https://stackoverflow.com/questions/45975255/flow-type-dismiss-warning-of-experimental-decorator-usage
+esproposal.decorators=ignore
 
 [strict]
 

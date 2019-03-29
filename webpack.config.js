@@ -4,6 +4,7 @@ const {
   baseFragment,
   devServerFragment,
   esFragment,
+  graphqlFragment,
   pluginsFragment,
   stylesFragment,
 } = require('./config/webpack.fragments');
@@ -17,6 +18,7 @@ module.exports = merge(
   },
   devServerFragment,
   esFragment,
+  graphqlFragment,
   stylesFragment,
   pluginsFragment,
 );

@@ -8,8 +8,19 @@ module.exports = {
     'emotion',
     'react-hot-loader/babel',
     'universal-import',
+    [
+      '@babel/plugin-proposal-decorators',
+      {
+        legacy: true,
+      },
+    ],
+    [
+      '@babel/plugin-proposal-class-properties',
+      {
+        loose: true,
+      },
+    ],
     '@babel/plugin-syntax-dynamic-import',
-    '@babel/plugin-proposal-class-properties',
     '@babel/plugin-proposal-optional-chaining',
   ],
 };

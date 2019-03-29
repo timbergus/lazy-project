@@ -1,0 +1,11 @@
+type Counter {
+  value: Int!
+}
+
+type Query {
+  counter: Int!
+}
+
+type Mutation {
+  modifyCounter(amount: Int!): Int!
+}

@@ -35,6 +35,18 @@ module.exports.esFragment = ({
   },
 });
 
+module.exports.graphqlFragment = ({
+  module: {
+    rules: [
+      {
+        test: /\.graphql$/,
+        exclude: /node_modules/,
+        use: 'graphql-import-loader',
+      },
+    ],
+  },
+});
+
 module.exports.stylesFragment = ({
   plugins: [
     new MiniCssExtractPlugin({

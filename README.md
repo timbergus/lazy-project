@@ -7,7 +7,7 @@
 
 ## Introduction
 
-There has been a lot of changes lately in the technology, and because I cannot update all my apps fast enough, I have create this technology template to have the satisfaction of seeing all this new things working 😁
+There has been a lot of changes lately in the frontend technology, and because I cannot update all my apps fast enough, I have created this technology template to have the satisfaction of seeing all these new things working 😁
 
 To launch the project in development mode run `yarn start`.
 

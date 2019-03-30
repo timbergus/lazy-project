@@ -23,20 +23,14 @@ const UniversalComponent = universal(props => import(`./${props.page}`), {
 
 // ? Loadable Component.
 
-const Profile = loadable(async () => {
-  await delay(1500, {});
-  return import('./profile');
-}, {
+const Profile = loadable(() => import('./profile'), {
   fallback: <LoadStateComponent />,
 });
 
 // ? React Loadable.
 
 const About = Loadable({
-  loader: async () => {
-    await delay(1500, {});
-    return import('./about');
-  },
+  loader: () => import('./about'),
   loading: LoadStateComponent,
 });
 

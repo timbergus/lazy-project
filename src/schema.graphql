@@ -3,7 +3,7 @@ type Counter {
 }
 
 type Query {
-  counter: Int!
+  info: String!
 }
 
 type Mutation {

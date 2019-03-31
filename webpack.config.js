@@ -13,7 +13,7 @@ module.exports = merge(
   baseFragment,
   {
     resolve: {
-      extensions: ['.js', '.jsx', '.css', '.scss'],
+      extensions: ['.mjs', '.js', '.jsx', '.css', '.scss'],
     },
   },
   devServerFragment,

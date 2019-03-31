@@ -1,16 +1,9 @@
 import ApolloClient from 'apollo-boost';
-import gql from 'graphql-tag';
 
 import { delay } from './utils/tools';
 import typeDefs from './schema.graphql';
 
-const COUNTER = gql`
-  query COUNTER {
-    counter {
-      value
-    }
-  }
-`;
+import { GET_COUNTER } from './utils/queries';
 
 const defaults = {
   counter: {
@@ -29,7 +22,7 @@ const resolvers = {
   Mutation: {
     modifyCounter: (_, { amount }, { cache }) => {
       const { counter } = cache.readQuery({
-        query: COUNTER,
+        query: GET_COUNTER,
       });
       cache.writeData({
         data: {
@@ -44,10 +37,11 @@ const resolvers = {
 };
 
 export default new ApolloClient({
-  uri: 'https://eu1.prisma.sh/gustavo-munoz-ef7b58/sick-fits/dev',
+  uri: 'https://eu1.prisma.sh/gustavo-munoz-ef7b58/lazy-project-server/dev',
   clientState: {
-    typeDefs,
-    defaults,
     resolvers,
+    defaults,
+    // Only used for introspection in Apollo Client DevTools.
+    typeDefs,
   },
 });

@@ -1,0 +1,8 @@
+projects:
+  lazy-project:
+    schemaPath: src/schema.graphql
+    extensions:
+      endpoints:
+        dev:
+          url: 'https://eu1.prisma.sh/gustavo-munoz-ef7b58/lazy-project-server/dev'
+          subscription: 'wss://eu1.prisma.sh/gustavo-munoz-ef7b58/lazy-project-server/dev'

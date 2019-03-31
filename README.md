@@ -51,6 +51,8 @@ The base is similar to all of them, but some are more complete than others, and 
 
 GraphQL is synonymous of Apollo Client. An amazing black box that makes our life easier. But which are its advantages over REST and Redux? And I talk about both, because Apollo client offers a GraphQL access and local state management, all in one 😲
 
+> __Profile__ route uses decorators to link GraphQL queries and gets the result from the props, because its a new and amazing future thing in ES. __About__ route uses Apollo components for queries and mutations.
+
 * __Data Fragmentation__ ➨ No more problems creating huge Redux stores for all our application even though there is no such application mostly if we lazy loading some parts. Each part knows which data needs and ask for it when rendered. The cache grows when while we use the application, and we can mix calls to a GraphQl server with the internal state of our application using `@client` in our queries.
 * __Fetch and Store all Together__ ➨ No more having separate tools to fetch and store data. Apollo client fetch the data we need, and store it inside a cache that can be expanded by internal data that does not need to live in our server.
 * __Data Specificity__ ➨ No more big amount of data to only pick one or two values. GraphQL allow us to create complex queries mixing a lot of data model and retrieve only the data needed. This reduce the bandwidth with the server dramatically, and saves data plans for the users in mobile platforms 🤑. Think in responsive sites or progressive web apps.

@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
 
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -12,28 +11,14 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
+import { GET_COUNTER, MODIFY_COUNTER } from '../utils/queries';
+
 type Props = {
   counter: Object,
   modifyCounter: Function,
 }
 
-const COUNTER = gql`
-  query COUNTER {
-    counter @client {
-      value
-    }
-  }
-`;
-
-const MODIFY_COUNTER = gql`
-  mutation MODIFY_COUNTER($amount: Int!) {
-    modifyCounter(amount: $amount) @client {
-      value
-    }
-  }
-`;
-
-@graphql(COUNTER, { name: 'counter' })
+@graphql(GET_COUNTER, { name: 'counter' })
 @graphql(MODIFY_COUNTER, { name: 'modifyCounter' })
 
 class Profile extends Component<Props> {

@@ -8,7 +8,6 @@ import loadable from '@loadable/component';
 
 // Utils.
 import { LoadStateComponent } from '../components/load-state';
-import { delay } from '../utils/tools';
 import LazyComponent from '../components/lazy-component';
 
 const lazyPages = ['home'];

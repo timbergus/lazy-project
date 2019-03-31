@@ -60,3 +60,8 @@ GraphQL is synonymous of Apollo Client. An amazing black box that makes our life
 There are two counters in Profile route and About route. You can change one, and navigate to see the changes in the other. The data handled by the counters is stored in the internal state of the application and shared between them.
 
 > Notice how the data is fetched by the other counter once it is rendered after lazy loading it, and it is no needed to do anything weird to let Apollo know that this component need data or which data.
+
+## Useful Links
+
+* [React State Management In a GraphQL Era - Kitze](https://www.youtube.com/watch?v=Q54YDGC_t3Y)
+* [Sara Vieira: State Management in React Apps with Apollo Client – React Kyiv June](https://www.youtube.com/watch?v=7u-6RR_YfdE)

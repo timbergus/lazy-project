@@ -1,9 +1,9 @@
 import ApolloClient from 'apollo-boost';
 
-import { delay } from './utils/tools';
+import { delay } from '../utils/tools';
 import typeDefs from './schema.graphql';
 
-import { GET_COUNTER } from './utils/queries';
+import { GET_COUNTER } from './queries';
 
 const defaults = {
   counter: {

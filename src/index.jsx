@@ -4,7 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-import client from './client';
+import client from './apollo/client';
 
 import App from './app';
 

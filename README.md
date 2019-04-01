@@ -1,7 +1,7 @@
 # Lazy Project
 
 <!-- Code performed by professionals. Don't try at home! -->
-<div style="width: 100%; text-align: center;">
+<div style="position: relative; width: 100%; text-align: center;">
   <img src="./src/assets/the_future.jpg" width="300" alt="The World of Tomorrow">
 </div>
 

@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 
 import { LoadStateClient } from '../components/load-state';
 
-import { GET_INFO } from '../utils/queries';
+import { GET_INFO } from '../apollo/queries';
 
 export default () => (
   <>

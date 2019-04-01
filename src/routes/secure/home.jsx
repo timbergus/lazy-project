@@ -5,9 +5,9 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-import { LoadStateClient } from '../components/load-state';
+import { LoadStateClient } from '../../components/load-state';
 
-import { GET_INFO } from '../apollo/queries';
+import { GET_INFO } from '../../apollo/queries';
 
 export default () => (
   <>

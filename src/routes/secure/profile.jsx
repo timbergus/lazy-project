@@ -11,7 +11,7 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
-import { GET_COUNTER, MODIFY_COUNTER } from '../apollo/queries';
+import { GET_COUNTER, MODIFY_COUNTER } from '../../apollo/queries';
 
 type Props = {
   counter: Object,

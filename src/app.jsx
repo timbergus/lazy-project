@@ -7,11 +7,11 @@ import './app.scss';
 // Base application tools.
 
 import React, { Component } from 'react';
-import { HashRouter as Router } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 
-import Routes from './routes/routes';
-import Navigation from './components/navigation';
+import Login from './routes/login';
+import Secure from './routes/secure';
 
 type Props = {};
 type State = {
@@ -37,8 +37,8 @@ class App extends Component<Props, State> {
     return (
       <Router>
         <>
-          <Navigation />
-          <Routes />
+          <Route path="/login" component={Login} />
+          <Route path="/secure" component={Secure} />
         </>
       </Router>
     );

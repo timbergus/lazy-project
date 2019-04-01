@@ -1,44 +1,71 @@
+// @flow
+
 // Playing with hooks. There is no need to use a class to use the state.
 
 import React, { useState } from 'react';
+import { Mutation } from 'react-apollo';
+
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
-export default () => {
-  const [name, setName] = useState('Harry');
-  const [surname, setSurname] = useState('Potter');
+import StyledLogin from './login.styled';
 
-  function handleChangeName(e) {
-    setName(e.target.value);
+import { MODIFY_CREDENTIALS } from '../apollo/queries';
+
+type Props = {
+  history: Object,
+}
+
+export default (props: Props) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleChangeUsername(e) {
+    setUsername(e.target.value);
   }
 
-  function handleChangeSurname(e) {
-    setSurname(e.target.value);
+  function handleChangePassword(e) {
+    setPassword(e.target.value);
   }
 
   return (
-    <>
-      <Typography variant="h2" component="h1" style={{ marginTop: '20px' }}>
-        Login
-      </Typography>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <TextField
-          id="outlined-name"
-          label="Name"
-          value={name}
-          onChange={handleChangeName}
-          margin="normal"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-surname"
-          label="Surname"
-          value={surname}
-          onChange={handleChangeSurname}
-          margin="normal"
-          variant="outlined"
-        />
-      </div>
-    </>
+    <Mutation mutation={MODIFY_CREDENTIALS}>
+      {
+        modifyCredentials => (
+          <StyledLogin>
+            <TextField
+              id="username"
+              label="Username"
+              value={username}
+              onChange={handleChangeUsername}
+              margin="normal"
+              variant="outlined"
+            />
+            <TextField
+              id="outlined-surname"
+              label="Password"
+              value={password}
+              type="password"
+              onChange={handleChangePassword}
+              margin="normal"
+              variant="outlined"
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => modifyCredentials({
+                variables: {
+                  username,
+                  password,
+                },
+                update: () => props.history.push('/secure/home'),
+              })}
+            >
+              Login
+            </Button>
+          </StyledLogin>
+        )
+      }
+    </Mutation>
   );
 };

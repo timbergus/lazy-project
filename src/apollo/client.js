@@ -3,12 +3,17 @@ import ApolloClient from 'apollo-boost';
 import { delay } from '../utils/tools';
 import typeDefs from './schema.graphql';
 
-import { GET_COUNTER } from './queries';
+import { GET_COUNTER, GET_CREDENTIALS } from './queries';
 
 const defaults = {
   counter: {
     __typename: 'Counter',
     value: 0,
+  },
+  credentials: {
+    __typename: 'Credentials',
+    username: '',
+    password: '',
   },
 };
 
@@ -29,6 +34,21 @@ const resolvers = {
           counter: {
             ...counter,
             value: counter.value + amount,
+          },
+        },
+      });
+    },
+    modifyCredentials: (_, { username, password }, { cache }) => {
+      const { credentials } = cache.readQuery({
+        query: GET_CREDENTIALS,
+      });
+
+      cache.writeData({
+        data: {
+          credentials: {
+            ...credentials,
+            username,
+            password,
           },
         },
       });

@@ -2,10 +2,16 @@ type Counter {
   value: Int!
 }
 
+type Credentials {
+  username: String!
+  password: String!
+}
+
 type Query {
   info: String!
 }
 
 type Mutation {
   modifyCounter(amount: Int!): Int!
+  modifyCredentials(username: String!, password: String!): Credentials!
 }

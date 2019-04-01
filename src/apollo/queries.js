@@ -32,3 +32,21 @@ export const GET_USERS = gql`
     }
   }
 `;
+
+export const GET_CREDENTIALS = gql`
+  query GET_CREDENTIALS {
+    credentials @client {
+      username
+      password
+    }
+  }
+`;
+
+export const MODIFY_CREDENTIALS = gql`
+  mutation MODIFY_COUNTER($username: String!, $password: String!) {
+    modifyCredentials(username: $username, password: $password) @client {
+      username
+      password
+    }
+  }
+`;

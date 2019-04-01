@@ -19,7 +19,7 @@ export default () => {
   return (
     <>
       <Typography variant="h2" component="h1" style={{ marginTop: '20px' }}>
-        Users
+        Login
       </Typography>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <TextField

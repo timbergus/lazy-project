@@ -1,14 +1,10 @@
 language: node_js
-cache:
-  directories:
-    - ~/.npm
-    - node_modules
 notifications:
   email: false
 node_js:
   - '10.15.3'
+before_install: npm install -g npm@6.2.0
 script:
-  - npm install -g npm@6.2.0
   - npm test && npm run codecov
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"

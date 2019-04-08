@@ -1,13 +1,20 @@
+sudo: false
 language: node_js
+cahe:
+  directories:
+    - node_modules
 notifications:
   email: false
 node_js:
   - '10.15.3'
-before_install: npm install -g npm@6.2.0
+before_install:
+  - npm i -g npm@6.2.0
+before_script:
+  - npm prune
 script:
   - npm test && npm run codecov
 after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
+  - npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/

@@ -6,4 +6,32 @@ menu: Libraries
 
 # Continuos Integration
 
-Let use continuos integration!
+We are going to use [Travis](https://travis-ci.org/) to [deliver](https://egghead.io/lessons/javascript-how-to-write-a-javascript-library-automatically-releasing-with-travisci) this project.
+
+The tools I want to add to the project are:
+
+* __[semantic-release](https://github.com/semantic-release/semantic-release)__
+* __[commitizen](https://github.com/commitizen/cz-cli)__
+* __[codecov](https://codecov.io/)__
+* __[Greenkeeper](https://greenkeeper.io/)__
+* __[Codacy](https://www.codacy.com/)__
+
+## [Semantic Release](https://egghead.io/lessons/javascript-automating-releases-with-semantic-release)
+
+Or the art of letting the machine decide when to release a new version of your application.
+
+## [Commitizen](https://egghead.io/lessons/javascript-writing-conventional-commits-with-commitizen)
+
+This is a tool to normalize commits. It gives you a simple wizard that allows you to enter a commit message answering a few questions. Then, depending on this commits, semantic release will decide if a new release must be created or not, and the process of updating the changelog, creating the tag, and the new release will be automatize ([see the video](https://egghead.io/lessons/javascript-committing-a-new-feature-with-commitizen));
+
+## Codecov
+
+This is a platform that shows you the test coverage of your project. It only needs the coverage from Jest in the root directory and collect coverage option generates it.
+
+## Greenkeeper
+
+This platform keeps your libraries updated and also test the updates previously passing the application tests, to see if the new versions breaks your app.
+
+## Codacy
+
+Codacy checks your code quality and gives you a mark and a list of improvements to let you know how good is you code and hoe to improve it.

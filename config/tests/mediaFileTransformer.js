@@ -4,7 +4,5 @@ const { basename } = require('path');
 // the correct images are loaded for components.
 
 module.exports = {
-    process: function(_, filename) {
-        return `module.exports = '${basename(filename)}';`;
-    }
+  process: (_, filename) => `module.exports = '${basename(filename)}';`,
 };

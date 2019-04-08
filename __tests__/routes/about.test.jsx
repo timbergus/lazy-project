@@ -1,11 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
-import About from '../../src/routes/about';
+import About from '../../src/routes/secure/about';
 
 describe('About route must...', () => {
   test('...be rendered.', () => {
-    const wrapper = mount(<About label="Click me!" />);
+    const wrapper = shallow(<About label="Click me!" />);
     expect(wrapper).toBeTruthy();
   });
 });

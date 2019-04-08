@@ -18,6 +18,7 @@
     "panic": "rimraf node_modules && rimraf package-lock.json && yarn",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
+    "precommit": "npm test",
     "semantic-release": "semantic-release",
     "commit": "git-cz",
     "codecov": "codecov",
@@ -99,6 +100,10 @@
     "webpack-cli": "3.3.0",
     "webpack-dev-server": "3.2.1",
     "webpack-merge": "4.2.1"
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.2.0"
   },
   "repository": {
     "type": "git",

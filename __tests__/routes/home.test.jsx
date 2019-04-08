@@ -1,11 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
-import Home from '../../src/routes/home';
+import Home from '../../src/routes/secure/home';
 
 describe('Home route must...', () => {
   test('...be rendered.', () => {
-    const wrapper = mount(<Home />);
+    const wrapper = shallow(<Home />);
     expect(wrapper).toBeTruthy();
   });
 });

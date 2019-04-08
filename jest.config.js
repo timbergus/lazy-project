@@ -15,7 +15,7 @@ module.exports = {
   // Coverage
   collectCoverage: true,
   collectCoverageFrom: ['routes', 'components'].map(module => `src/${module}/**/*.{js,jsx}`),
-  coverageDirectory: '<rootDir>/__tests__/coverage',
+  coverageDirectory: '<rootDir>/coverage',
   coveragePathIgnorePatterns: ['<rootDir>/node_modules/'],
   coverageReporters: ['lcov', 'text-summary'],
   coverageThreshold: {

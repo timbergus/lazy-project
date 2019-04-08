@@ -1,9 +1,14 @@
 # Lazy Project
 
 <!-- Code performed by professionals. Don't try at home! -->
-<div style="position: relative; width: 100%; text-align: center;">
-  <img src="./src/assets/the_future.jpg" width="300" alt="The World of Tomorrow">
-</div>
+<img src="./src/assets/the_future.jpg" width="300" alt="The World of Tomorrow">
+
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/timbergus/fullstack-cli.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/timbergus/fullstack-cli.svg?branch=master)](https://travis-ci.org/timbergus/fullstack-cli)
+[![codecov](https://codecov.io/gh/timbergus/fullstack-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/timbergus/fullstack-cli)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/33b4fe9bf9364eb1ad905ef83ca85681)](https://www.codacy.com/app/timbergus/lazy-project?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=timbergus/lazy-project&amp;utm_campaign=Badge_Grade)
 
 ## Introduction
 

@@ -21,7 +21,7 @@
     "precommit": "npm test",
     "semantic-release": "semantic-release",
     "commit": "git-cz",
-    "codecov": "codecov",
+    "codecov": "codecov && cat ./coverage/lcov.info | codacy-coverage",
     "travis-deploy-once": "travis-deploy-once"
   },
   "keywords": [

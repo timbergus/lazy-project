@@ -13,6 +13,7 @@ before_script:
   - npm prune
 script:
   - npm test && npm run codecov
+  - cat ./coverage/lcov.info | codacy-coverage
 after_success:
   - npm run semantic-release
 branches:

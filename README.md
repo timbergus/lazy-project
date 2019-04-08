@@ -7,7 +7,7 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Greenkeeper badge](https://badges.greenkeeper.io/timbergus/fullstack-cli.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/timbergus/lazy-project.svg?branch=master)](https://travis-ci.org/timbergus/lazy-project)
-[![codecov](https://codecov.io/gh/timbergus/fullstack-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/timbergus/fullstack-cli)
+[![codecov](https://codecov.io/gh/timbergus/lazy-project/branch/master/graph/badge.svg)](https://codecov.io/gh/timbergus/lazy-project)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/33b4fe9bf9364eb1ad905ef83ca85681)](https://www.codacy.com/app/timbergus/lazy-project?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=timbergus/lazy-project&amp;utm_campaign=Badge_Grade)
 
 ## Introduction

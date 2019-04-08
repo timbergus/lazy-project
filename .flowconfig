@@ -23,4 +23,5 @@ esproposal.optional_chaining=enable
 [strict]
 
 [untyped]
-.*/node_modules/react-universal-component
+; https://github.com/facebook/flow/issues/5568
+.*/node_modules/*.

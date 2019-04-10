@@ -10,6 +10,8 @@ import loadable from '@loadable/component';
 import { LoadStateComponent } from '../components/load-state';
 import LazyComponent from '../components/lazy-component';
 
+import MyProvider from '../titles.provider';
+
 const lazyPages = ['home'];
 
 // ! Universal Components.
@@ -34,7 +36,7 @@ const About = Loadable({
 });
 
 export default () => (
-  <>
+  <MyProvider>
     {
       lazyPages.map(page => (
         <Route
@@ -57,5 +59,5 @@ export default () => (
     {/* @loadable/component is not as expected */}
     <Route path="/secure/profile" component={props => <Profile {...props} />} />
     <Route path="/secure/about" component={About} />
-  </>
+  </MyProvider>
 );

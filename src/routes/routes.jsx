@@ -39,7 +39,7 @@ export default () => (
       lazyPages.map(page => (
         <Route
           key={uuidv1()}
-          path={`/secure_routes/${page}`}
+          path={`/secure/${page}`}
           component={props => <LazyComponent {...props} page={page} />}
         />
       ))
@@ -49,13 +49,13 @@ export default () => (
       pages.map(page => (
         <Route
           key={uuidv1()}
-          path={`/secure_routes/${page}`}
+          path={`/secure/${page}`}
           component={props => <UniversalComponent {...props} page={page} />}
         />
       ))
     }
     {/* @loadable/component is not as expected */}
-    <Route path="/secure_routes/profile" component={props => <Profile {...props} />} />
-    <Route path="/secure_routes/about" component={About} />
+    <Route path="/secure/profile" component={props => <Profile {...props} />} />
+    <Route path="/secure/about" component={About} />
   </>
 );

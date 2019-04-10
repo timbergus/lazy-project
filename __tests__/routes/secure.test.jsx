@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Users from '../../src/routes/secure/users';
+import Secure from '../../src/routes/secure';
 
-describe('Users route must...', () => {
+describe('Secure route must...', () => {
   test('...be rendered.', () => {
-    const wrapper = shallow(<Users />);
+    const wrapper = shallow(<Secure />);
     expect(wrapper).toBeTruthy();
   });
 });

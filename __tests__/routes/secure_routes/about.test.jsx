@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import About from '../../src/routes/secure/about';
+import About from '../../../src/routes/secure_routes/about';
 
 describe('About route must...', () => {
   test('...be rendered.', () => {

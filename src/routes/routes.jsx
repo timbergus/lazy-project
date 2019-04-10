@@ -16,20 +16,20 @@ const lazyPages = ['home'];
 
 const pages = ['users'];
 
-const UniversalComponent = universal(props => import(`./secure/${props.page}`), {
+const UniversalComponent = universal(props => import(`./secure_routes/${props.page}`), {
   loading: <LoadStateComponent />,
 });
 
 // ? Loadable Component.
 
-const Profile = loadable(() => import('./secure/profile'), {
+const Profile = loadable(() => import('./secure_routes/profile'), {
   fallback: <LoadStateComponent />,
 });
 
 // ? React Loadable.
 
 const About = Loadable({
-  loader: () => import('./secure/about'),
+  loader: () => import('./secure_routes/about'),
   loading: LoadStateComponent,
 });
 
@@ -39,7 +39,7 @@ export default () => (
       lazyPages.map(page => (
         <Route
           key={uuidv1()}
-          path={`/secure/${page}`}
+          path={`/secure_routes/${page}`}
           component={props => <LazyComponent {...props} page={page} />}
         />
       ))
@@ -49,13 +49,13 @@ export default () => (
       pages.map(page => (
         <Route
           key={uuidv1()}
-          path={`/secure/${page}`}
+          path={`/secure_routes/${page}`}
           component={props => <UniversalComponent {...props} page={page} />}
         />
       ))
     }
     {/* @loadable/component is not as expected */}
-    <Route path="/secure/profile" component={props => <Profile {...props} />} />
-    <Route path="/secure/about" component={About} />
+    <Route path="/secure_routes/profile" component={props => <Profile {...props} />} />
+    <Route path="/secure_routes/about" component={About} />
   </>
 );

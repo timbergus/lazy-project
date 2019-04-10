@@ -80,7 +80,7 @@
     "docz-theme-default": "1.0.0-rc.8",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-flowtype": "^3.6.0",
+    "eslint-plugin-flowtype": "^3.6.1",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
@@ -94,12 +94,12 @@
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
     "semantic-release": "^15.13.3",
-    "semantic-release-cli": "^4.1.1",
+    "semantic-release-cli": "^4.1.2",
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.2.1",
+    "webpack-dev-server": "^3.3.1",
     "webpack-merge": "^4.2.1"
   },
   "engines": {

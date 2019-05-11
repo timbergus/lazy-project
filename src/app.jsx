@@ -37,6 +37,7 @@ class App extends Component<Props, State> {
     return (
       <Router>
         <>
+          <Route exact path="/" component={Login} />
           <Route path="/login" component={Login} />
           <Route path="/secure" component={Secure} />
         </>

@@ -34,7 +34,6 @@ export default (props: Props) => {
         modifyCredentials => (
           <StyledLogin>
             <TextField
-              id="username"
               label="Username"
               value={username}
               onChange={handleChangeUsername}
@@ -42,7 +41,6 @@ export default (props: Props) => {
               variant="outlined"
             />
             <TextField
-              id="outlined-surname"
               label="Password"
               value={password}
               type="password"

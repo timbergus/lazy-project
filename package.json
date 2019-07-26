@@ -85,7 +85,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.14.2",
     "file-loader": "^4.0.0",
-    "flow-bin": "^0.103.0",
+    "flow-bin": "^0.104.0",
     "graphql-import-loader": "^0.2.1",
     "jest": "^24.8.0",
     "node-sass": "^4.12.0",

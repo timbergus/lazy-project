@@ -31,7 +31,7 @@ export default () => (
       </CardContent>
       <Mutation mutation={MODIFY_COUNTER}>
         {
-          modifyCounter => (
+          (modifyCounter) => (
             <CardActions>
               <Fab
                 size="small"

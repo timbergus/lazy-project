@@ -30,7 +30,7 @@ class Profile extends Component<Props> {
       <>
         <MyContext.Consumer>
           {
-            context => (
+            (context) => (
               <>
                 <Typography variant="h2" component="h1" style={{ marginTop: '20px' }}>
                   {context?.state?.titles?.profile}

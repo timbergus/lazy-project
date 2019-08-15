@@ -9,7 +9,7 @@ export default styled.button`
   padding: 0.25em 1em;
   cursor: pointer;
 
-  ${(props) => props.primary && css`
+  ${props => props.primary && css`
     background: palevioletred;
     color: white;
   `}

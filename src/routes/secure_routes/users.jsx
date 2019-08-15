@@ -21,7 +21,7 @@ export default () => {
 
   return (
     <ApolloConsumer>
-      {(client) => {
+      {client => {
         const { credentials } = client.readQuery({ query: GET_CREDENTIALS });
         const { username, password } = credentials;
 

@@ -18,7 +18,7 @@ const lazyPages = ['home'];
 
 const pages = ['users'];
 
-const UniversalComponent = universal((props) => import(`./secure_routes/${props.page}`), {
+const UniversalComponent = universal(props => import(`./secure_routes/${props.page}`), {
   loading: <LoadStateComponent />,
 });
 
@@ -38,26 +38,26 @@ const About = Loadable({
 export default () => (
   <MyProvider>
     {
-      lazyPages.map((page) => (
+      lazyPages.map(page => (
         <Route
           key={uuidv1()}
           path={`/secure/${page}`}
-          component={(props) => <LazyComponent {...props} page={page} />}
+          component={props => <LazyComponent {...props} page={page} />}
         />
       ))
     }
     {/* This universal component can be generated using a list of routes */}
     {
-      pages.map((page) => (
+      pages.map(page => (
         <Route
           key={uuidv1()}
           path={`/secure/${page}`}
-          component={(props) => <UniversalComponent {...props} page={page} />}
+          component={props => <UniversalComponent {...props} page={page} />}
         />
       ))
     }
     {/* @loadable/component is not as expected */}
-    <Route path="/secure/profile" component={(props) => <Profile {...props} />} />
+    <Route path="/secure/profile" component={props => <Profile {...props} />} />
     <Route path="/secure/about" component={About} />
   </MyProvider>
 );

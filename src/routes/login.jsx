@@ -31,7 +31,7 @@ export default (props: Props) => {
   return (
     <Mutation mutation={MODIFY_CREDENTIALS}>
       {
-        (modifyCredentials) => (
+        modifyCredentials => (
           <StyledLogin>
             <TextField
               label="Username"

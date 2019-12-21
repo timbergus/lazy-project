@@ -32,8 +32,7 @@ module.exports = {
     '<rootDir>/src/app.jsx',
   ],
 
-  // Modules location.
-  moduleDirectories: ['<rootDir>/node_modules'],
+  // Setup files and other transforms.
 
   setupFiles: ['<rootDir>/config/tests/test-setup.js'],
 

@@ -1,8 +1,8 @@
 // @flow
 
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { graphql } from 'react-apollo';
+import React from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { withStyles } from '@material-ui/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -16,15 +16,7 @@ import ExitToApp from '@material-ui/icons/ExitToApp';
 import { GET_COUNTER, MODIFY_CREDENTIALS } from '../apollo/queries';
 
 type Props = {
-  history: Array<string>,
-  location: Object,
-  counter: Object,
   classes: Object,
-  modifyCredentials: Function,
-}
-
-type State = {
-  color: string,
 }
 
 const styles = () => ({
@@ -33,87 +25,74 @@ const styles = () => ({
   },
 });
 
-@graphql(GET_COUNTER, { name: 'counter' })
-@graphql(MODIFY_CREDENTIALS, { name: 'modifyCredentials' })
+const Navigation = ({ classes }: Props) => {
+  const { data } = useQuery(GET_COUNTER);
+  const [modifyCredentials] = useMutation(MODIFY_CREDENTIALS);
 
-class Navigation extends Component<Props, State> {
-  getActiveRoute(path) {
-    const { location } = this.props;
-    return location.pathname === path ? 'secondary' : 'default';
-  }
+  const history = useHistory();
+  const location = useLocation();
 
-  logout = () => {
-    const { history } = this.props;
-    history.push('/login');
-  }
+  const getActiveRoute = path => (
+    location.pathname === path ? 'secondary' : 'default'
+  );
 
-  navigateTo(path) {
-    const { history } = this.props;
+  const navigateTo = path => {
     history.push(path);
-  }
+  };
 
-  render() {
-    const {
-      counter,
-      modifyCredentials,
-      classes,
-      history,
-    } = this.props;
+  return (
+    <nav>
+      <AppBar position="static" color="default">
+        <Toolbar className={classes.toolbar}>
+          <div>
+            <Button
+              color={getActiveRoute('/secure/home')}
+              onClick={() => navigateTo('/secure/home')}
+            >
+              Home
+            </Button>
+            <Button
+              color={getActiveRoute('/secure/users')}
+              onClick={() => navigateTo('/secure/users')}
+            >
+              Users
+            </Button>
+            <Button
+              color={getActiveRoute('/secure/profile')}
+              onClick={() => navigateTo('/secure/profile')}
+            >
+              Profile
+            </Button>
+            <Button
+              color={getActiveRoute('/secure/about')}
+              onClick={() => navigateTo('/secure/about')}
+            >
+              About
+            </Button>
+          </div>
+          <div>
+            <IconButton color="inherit">
+              <Badge badgeContent={data?.counter?.value} color="secondary">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+            <IconButton
+              onClick={() => modifyCredentials({
+                variables: {
+                  username: '',
+                  password: '',
+                },
+                update: () => history.push('/login'),
+              })}
+              color="inherit"
+            >
+              <ExitToApp />
+            </IconButton>
+          </div>
+        </Toolbar>
+      </AppBar>
+    </nav>
+  );
+};
 
-    return (
-      <nav>
-        <AppBar position="static" color="default">
-          <Toolbar className={classes.toolbar}>
-            <div>
-              <Button
-                color={this.getActiveRoute('/secure/home')}
-                onClick={() => this.navigateTo('/secure/home')}
-              >
-                Home
-              </Button>
-              <Button
-                color={this.getActiveRoute('/secure/users')}
-                onClick={() => this.navigateTo('/secure/users')}
-              >
-                Users
-              </Button>
-              <Button
-                color={this.getActiveRoute('/secure/profile')}
-                onClick={() => this.navigateTo('/secure/profile')}
-              >
-                Profile
-              </Button>
-              <Button
-                color={this.getActiveRoute('/secure/about')}
-                onClick={() => this.navigateTo('/secure/about')}
-              >
-                About
-              </Button>
-            </div>
-            <div>
-              <IconButton color="inherit">
-                <Badge badgeContent={counter?.counter?.value} color="secondary">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
-              <IconButton
-                onClick={() => modifyCredentials({
-                  variables: {
-                    username: '',
-                    password: '',
-                  },
-                  update: () => history.push('/login'),
-                })}
-                color="inherit"
-              >
-                <ExitToApp />
-              </IconButton>
-            </div>
-          </Toolbar>
-        </AppBar>
-      </nav>
-    );
-  }
-}
-
-export default withStyles(styles)(withRouter(Navigation));
+export default withStyles(styles)(Navigation);

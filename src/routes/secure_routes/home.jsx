@@ -1,5 +1,5 @@
 import React from 'react';
-import { Query } from 'react-apollo';
+import { useQuery } from '@apollo/react-hooks';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,30 +9,42 @@ import { LoadStateClient } from '../../components/load-state';
 
 import { GET_INFO } from '../../apollo/queries';
 
-export default () => (
-  <>
-    <Typography variant="h2" component="h1" style={{ marginTop: '20px' }}>
-      Home
-    </Typography>
-    <Card style={{ marginTop: '20px' }}>
-      <CardContent>
-        <Typography color="textSecondary" gutterBottom>
-          And the message is...
+export default () => {
+  const { loading, error, data } = useQuery(GET_INFO);
+
+  const getContents = () => {
+    if (loading) {
+      return <LoadStateClient />;
+    }
+
+    if (error) {
+      return (
+        <Typography variant="h5" component="h2">
+          {`Error! ${error.message}`}
         </Typography>
-        <Query query={GET_INFO}>
-          {
-            ({ loading, error, data }) => {
-              if (loading) return <LoadStateClient />;
-              if (error) return `Error! ${error.message}`;
-              return (
-                <Typography variant="h5" component="h2">
-                  {`${data?.info?.message}`}
-                </Typography>
-              );
-            }
-          }
-        </Query>
-      </CardContent>
-    </Card>
-  </>
-);
+      );
+    }
+
+    return (
+      <Typography variant="h5" component="h2">
+        {`${data?.info?.message}`}
+      </Typography>
+    );
+  };
+
+  return (
+    <>
+      <Typography variant="h2" component="h1" style={{ marginTop: '20px' }}>
+        Home
+      </Typography>
+      <Card style={{ marginTop: '20px' }}>
+        <CardContent>
+          <Typography color="textSecondary" gutterBottom>
+            And the message is...
+          </Typography>
+          {getContents()}
+        </CardContent>
+      </Card>
+    </>
+  );
+};

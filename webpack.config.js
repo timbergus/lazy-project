@@ -14,6 +14,9 @@ module.exports = merge(
   {
     resolve: {
       extensions: ['.mjs', '.js', '.jsx', '.css', '.scss'],
+      alias: {
+        'react-dom': '@hot-loader/react-dom',
+      },
     },
   },
   devServerFragment,

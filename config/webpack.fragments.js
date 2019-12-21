@@ -16,7 +16,9 @@ module.exports.devServerFragment = ({
     contentBase: resolve('dist'),
     compress: true,
     port: 3000,
-    open: false,
+    open: true,
+    inline: true,
+    hot: true,
     proxy: {
       '/api': 'http://localhost:3500',
     },

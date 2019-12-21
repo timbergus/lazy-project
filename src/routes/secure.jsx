@@ -1,7 +1,7 @@
 // @flow
 
-import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
+import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
 import { Redirect } from 'react-router-dom';
 
 import Routes from './routes';
@@ -9,27 +9,17 @@ import Navigation from '../components/navigation';
 
 import { GET_CREDENTIALS } from '../apollo/queries';
 
-type Props = {
-  credentials: Object,
-}
+export default () => {
+  const { data } = useQuery(GET_CREDENTIALS);
 
-@graphql(GET_CREDENTIALS, { name: 'credentials' })
-
-class Login extends Component<Props> {
-  render() {
-    const { credentials: { credentials: { username, password } } } = this.props;
-
-    if (username && password) {
-      return (
-        <>
-          <Navigation />
-          <Routes />
-        </>
-      );
-    }
-
-    return <Redirect to={{ pathname: '/login' }} />;
+  if (data?.credentials?.username && data?.credentials?.password) {
+    return (
+      <>
+        <Navigation />
+        <Routes />
+      </>
+    );
   }
-}
 
-export default Login;
+  return <Redirect to={{ pathname: '/login' }} />;
+};

@@ -6,22 +6,12 @@ import ButtonStyled from './button.styled';
 
 type Props = {
   label: string,
-  primary?: boolean,
+  primary: boolean,
   onClick: Function,
 }
 
-const Button = (props: Props) => {
-  const { primary, label, onClick } = props;
-
-  return (
-    <ButtonStyled primary={primary} onClick={onClick}>
-      {label}
-    </ButtonStyled>
-  );
-};
-
-Button.defaultProps = {
-  primary: false,
-};
-
-export default Button;
+export default ({ label, primary = false, onClick }: Props) => (
+  <ButtonStyled primary={primary} onClick={onClick}>
+    {label}
+  </ButtonStyled>
+);

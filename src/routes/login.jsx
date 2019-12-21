@@ -3,7 +3,8 @@
 // Playing with hooks. There is no need to use a class to use the state.
 
 import React, { useState } from 'react';
-import { Mutation } from 'react-apollo';
+import { useHistory } from 'react-router-dom';
+import { useMutation } from '@apollo/react-hooks';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -12,58 +13,58 @@ import StyledLogin from './login.styled';
 
 import { MODIFY_CREDENTIALS } from '../apollo/queries';
 
-type Props = {
-  history: Object,
-}
-
-export default (props: Props) => {
+export default () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [modifyCredentials] = useMutation(MODIFY_CREDENTIALS);
 
-  function handleChangeUsername(e) {
-    setUsername(e.target.value);
-  }
+  const history = useHistory();
 
-  function handleChangePassword(e) {
-    setPassword(e.target.value);
-  }
+  const handleChange = event => {
+    switch (event.currentTarget.name) {
+      case 'username':
+        setUsername(event.currentTarget.value);
+        break;
+      case 'password':
+        setPassword(event.currentTarget.value);
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
-    <Mutation mutation={MODIFY_CREDENTIALS}>
-      {
-        modifyCredentials => (
-          <StyledLogin>
-            <TextField
-              label="Username"
-              value={username}
-              onChange={handleChangeUsername}
-              margin="normal"
-              variant="outlined"
-            />
-            <TextField
-              label="Password"
-              value={password}
-              type="password"
-              onChange={handleChangePassword}
-              margin="normal"
-              variant="outlined"
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => modifyCredentials({
-                variables: {
-                  username,
-                  password,
-                },
-                update: () => props.history.push('/secure/home'),
-              })}
-            >
-              Login
-            </Button>
-          </StyledLogin>
-        )
-      }
-    </Mutation>
+    <StyledLogin>
+      <TextField
+        label="Username"
+        name="username"
+        value={username}
+        onChange={handleChange}
+        margin="normal"
+        variant="outlined"
+      />
+      <TextField
+        label="Password"
+        name="password"
+        value={password}
+        type="password"
+        onChange={handleChange}
+        margin="normal"
+        variant="outlined"
+      />
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => modifyCredentials({
+          variables: {
+            username,
+            password,
+          },
+          update: () => history.push('/secure/home'),
+        })}
+      >
+        Login
+      </Button>
+    </StyledLogin>
   );
 };

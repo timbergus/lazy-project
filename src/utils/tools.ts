@@ -1,10 +1,10 @@
-export const delay = (time, data) => new Promise(resolve => {
+export const delay = (time: number, data: any) => new Promise(resolve => {
   setTimeout(() => {
     resolve(data);
   }, time);
 });
 
-export const routeMinDelay = (page, time) => Promise
+export const routeMinDelay = (page:string, time: number): Promise<any> => Promise
   .all([
     import(`../routes/secure_routes/${page}`),
     new Promise(resolve => setTimeout(resolve, time)),

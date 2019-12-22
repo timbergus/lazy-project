@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
@@ -13,7 +13,7 @@ export default () => {
 
   const { data } = useQuery(GET_CREDENTIALS);
 
-  const handleChange = event => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     switch (event.currentTarget.name) {
       case 'name':
         setName(event.currentTarget.value);

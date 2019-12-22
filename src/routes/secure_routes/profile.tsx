@@ -11,7 +11,7 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
-import { MyContext } from '../../titles.provider';
+import { MyContext, Context } from '../../titles.provider';
 
 import { GET_COUNTER, MODIFY_COUNTER } from '../../apollo/queries';
 
@@ -22,7 +22,7 @@ export default () => {
   return (
     <MyContext.Consumer>
       {
-        context => (
+        (context: Context) => (
           <>
             <Typography variant="h2" component="h1" style={{ marginTop: '20px' }}>
               {context?.state?.titles?.profile}

@@ -2,7 +2,7 @@
 
 // Global application styles.
 
-import './app.scss';
+import './app.css';
 
 // Base application tools.
 

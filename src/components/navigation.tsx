@@ -16,7 +16,7 @@ import ExitToApp from '@material-ui/icons/ExitToApp';
 import { GET_COUNTER, MODIFY_CREDENTIALS } from '../apollo/queries';
 
 type Props = {
-  classes: Object,
+  classes: any,
 }
 
 const styles = () => ({
@@ -32,11 +32,11 @@ const Navigation = ({ classes }: Props) => {
   const history = useHistory();
   const location = useLocation();
 
-  const getActiveRoute = path => (
+  const getActiveRoute = (path: string) => (
     location.pathname === path ? 'secondary' : 'default'
   );
 
-  const navigateTo = path => {
+  const navigateTo = (path: string) => {
     history.push(path);
   };
 

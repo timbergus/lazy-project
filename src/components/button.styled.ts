@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 
-export default styled.button`
+interface Props {
+  primary: boolean;
+}
+
+export default styled.button<Props>`
   background: transparent;
   border-radius: 3px;
   border: 2px solid palevioletred;

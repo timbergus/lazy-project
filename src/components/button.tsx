@@ -6,8 +6,8 @@ import ButtonStyled from './button.styled';
 
 type Props = {
   label: string,
-  primary: boolean,
-  onClick: Function,
+  primary?: boolean,
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 export default ({ label, primary = false, onClick }: Props) => (

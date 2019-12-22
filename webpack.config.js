@@ -3,25 +3,35 @@ const merge = require('webpack-merge');
 const {
   baseFragment,
   devServerFragment,
-  esFragment,
+  tsFragment,
   graphqlFragment,
   pluginsFragment,
-  stylesFragment,
+  postCssFragment,
 } = require('./config/webpack.fragments');
 
 module.exports = merge(
   baseFragment,
   {
     resolve: {
-      extensions: ['.mjs', '.js', '.jsx', '.css', '.scss'],
+      extensions: [
+        '.mjs',
+        '.js',
+        '.jsx',
+        '.ts',
+        '.tsx',
+        '.css',
+        '.scss',
+        '.json',
+        '.graphql',
+      ],
       alias: {
         'react-dom': '@hot-loader/react-dom',
       },
     },
   },
   devServerFragment,
-  esFragment,
+  tsFragment,
   graphqlFragment,
-  stylesFragment,
+  postCssFragment,
   pluginsFragment,
 );

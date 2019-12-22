@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, RouteProps } from 'react-router-dom';
 import uuidv1 from 'uuid/v1';
 
 import universal from 'react-universal-component';
@@ -18,7 +18,7 @@ const lazyPages = ['home'];
 
 const pages = ['users'];
 
-const UniversalComponent = universal(props => import(`./secure_routes/${props.page}`), {
+const UniversalComponent = universal((props: any) => import(`./secure_routes/${props.page}`), {
   loading: <LoadStateComponent />,
 });
 
@@ -42,7 +42,7 @@ export default () => (
         <Route
           key={uuidv1()}
           path={`/secure/${page}`}
-          component={props => <LazyComponent {...props} page={page} />}
+          component={(props: RouteProps) => <LazyComponent {...props} page={page} />}
         />
       ))
     }
@@ -52,12 +52,12 @@ export default () => (
         <Route
           key={uuidv1()}
           path={`/secure/${page}`}
-          component={props => <UniversalComponent {...props} page={page} />}
+          component={(props: RouteProps) => <UniversalComponent {...props} page={page} />}
         />
       ))
     }
     {/* @loadable/component is not as expected */}
-    <Route path="/secure/profile" component={props => <Profile {...props} />} />
+    <Route path="/secure/profile" component={(props: RouteProps) => <Profile {...props} />} />
     <Route path="/secure/about" component={About} />
   </MyProvider>
 );

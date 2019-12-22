@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports.baseFragment = ({
   mode: process.env.NODE_ENV,
-  entry: ['@babel/polyfill', resolve('src', 'index.jsx')],
+  entry: ['@babel/polyfill', resolve('src', 'index.tsx')],
   output: {
     filename: '[name].[hash].js',
     path: resolve('dist'),
@@ -32,6 +32,18 @@ module.exports.esFragment = ({
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
+      },
+    ],
+  },
+});
+
+module.exports.tsFragment = ({
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
       },
     ],
   },
@@ -68,6 +80,30 @@ module.exports.stylesFragment = ({
           'css-loader',
           'postcss-loader',
           'sass-loader',
+        ],
+      },
+    ],
+  },
+});
+
+module.exports.postCssFragment = ({
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css',
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          process.env.NODE_ENV !== 'production'
+            ? 'style-loader'
+            : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
         ],
       },
     ],

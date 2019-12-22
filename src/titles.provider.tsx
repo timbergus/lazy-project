@@ -8,8 +8,28 @@ type Props = {
   children: Object,
 }
 
+export interface Context {
+  state: {
+    titles: {
+      home: string,
+      users: string,
+      profile: string,
+      about: string,
+    }
+  }
+}
+
 // Using context.
-export const MyContext = createContext<Object>();
+export const MyContext = createContext<Context>({
+  state: {
+    titles: {
+      home: '',
+      users: '',
+      profile: '',
+      about: '',
+    },
+  },
+});
 
 export default (props: Props) => {
   const titles = {

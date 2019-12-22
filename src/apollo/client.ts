@@ -25,7 +25,11 @@ const resolvers = {
     }),
   },
   Mutation: {
-    modifyCounter: (_, { amount }, { cache }) => {
+    modifyCounter: (
+      _: any,
+      { amount }: { amount: number },
+      { cache }: { cache: any },
+    ) => {
       const { counter } = cache.readQuery({
         query: GET_COUNTER,
       });
@@ -38,7 +42,11 @@ const resolvers = {
         },
       });
     },
-    modifyCredentials: (_, { username, password }, { cache }) => {
+    modifyCredentials: (
+      _: any,
+      { username, password }: { username: string, password: string },
+      { cache }: { cache: any },
+    ) => {
       const { credentials } = cache.readQuery({
         query: GET_CREDENTIALS,
       });

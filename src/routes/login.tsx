@@ -2,7 +2,7 @@
 
 // Playing with hooks. There is no need to use a class to use the state.
 
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 
@@ -20,7 +20,7 @@ export default () => {
 
   const history = useHistory();
 
-  const handleChange = event => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     switch (event.currentTarget.name) {
       case 'username':
         setUsername(event.currentTarget.value);

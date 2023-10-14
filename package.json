@@ -43,7 +43,7 @@
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.7.1",
     "apollo-boost": "^0.4.7",
-    "autoprefixer": "^9.7.3",
+    "autoprefixer": "^9.8.0",
     "babel-plugin-universal-import": "^4.0.0",
     "codacy-coverage": "^3.4.0",
     "dotenv": "^8.2.0",

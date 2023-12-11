@@ -62,7 +62,7 @@
     "react-router-dom": "^5.1.2",
     "react-spinners": "^0.7.0",
     "react-universal-component": "^4.0.0",
-    "styled-components": "^4.4.1",
+    "styled-components": "^6.1.0",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
